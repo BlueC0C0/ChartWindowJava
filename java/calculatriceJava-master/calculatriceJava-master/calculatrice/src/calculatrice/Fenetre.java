@@ -1,32 +1,27 @@
 package calculatrice;
 
 
-import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 public class Fenetre extends JFrame{
 	
-	private JPanel pan = new JPanel();
 	
 		Graph tableau = new Graph();
 	
 	
-	
 	public Fenetre(){
+		int tab[][]= {{0,1,0},{1,1,1},{1,1,1}};
 		
-	    this.setTitle("Ma premiï¿½re fenï¿½tre Java");
+	    this.setTitle("Ma première fenètre Java");
 	    this.setSize(400, 500);
 	    this.setLocationRelativeTo(null);
-	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
-	    
+	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    this.setLayout(null);
+	    tableau.sendTab(tab);
 	    this.setContentPane(tableau);
-	    int tab[][]= {{0,1,0},{0,1,0},{0,1,0}};
-	    tableau.drawTab(tab);
 	    this.setVisible(true);
 	    
 	 }
@@ -43,13 +38,12 @@ public class Fenetre extends JFrame{
 	    this.setContentPane(tableau);
 	    this.setVisible(true);
 	    
-	    this.run();
+	    //this.run();
 	  }
 	private void run()
 	{
 		for(;;)
 		{
-			this.
 		}
 	}
 }

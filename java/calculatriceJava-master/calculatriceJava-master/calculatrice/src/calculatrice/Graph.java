@@ -1,46 +1,44 @@
 package calculatrice;
-import java.awt.*;
-import java.util.Random;
 
-import javax.swing.JPanel;
+import java.awt.Graphics;
+import java.util.Random;
+import javax.swing.*;
 
 public class Graph extends JPanel {
-
-
-	public void paintComponent(Graphics g){                
-	             
-	}
+	private int tab[][]=   {{1,1,1,1,1},
+							{1,1,1,1,1},
+							{1,1,1,1,1},
+							{1,1,1,1,1},
+							{1,1,1,1,1}};
+	private int tab2[][] = {{0,0,0,0,0,0,0},{0,0,0,0,0,0,0}};
 	
-	public void drawTab(int[][] tab)
-	{
-		
-		int tab2[][] = {{0,0,0,0,0,0,0},{0,0,0,0,0,0,0}};
-		
-		for(int i=0; i<3; i++)
+	public void paintComponent(Graphics g){                
+		for(int i=0; i<5; i++)
 		{
-			for(int y=0; y<3; y++) {
-				if(tab[i][y]==1)
+			for(int y=0; y<5; y++) {
+				if(this.tab[i][y]==1)
 				{
-					if(tab2[i][0]==0)
+					if(this.tab2[0][i]==0)
 					{
-						tab2[i][0]= nombreAlea(50, this.getWidth()-50);
-						tab2[i][1]= nombreAlea(50, this.getHeight()-50);
+						this.tab2[0][i]= nombreAlea(50, this.getWidth()-50);
+						this.tab2[1][i]= nombreAlea(50, this.getHeight()-50);
 					}
-					if(tab2[y][0]==0)
+					if(this.tab2[0][y]==0)
 					{
-						tab2[i][0]= nombreAlea(50, this.getWidth()-50);
-						tab2[i][1]= nombreAlea(50, this.getHeight()-50);
+						this.tab2[0][y]= nombreAlea(50, this.getWidth()-50);
+						this.tab2[1][y]= nombreAlea(50, this.getHeight()-50);
 					}
-					
-					this.graphDraw(tab2[i][0], tab2[i][1], tab2[y][0], tab2[y][1]);
+						g.drawLine(tab2[0][i], tab2[1][i], tab2[0][y], tab2[1][y]);
+						g.drawString(String.valueOf(i+1), tab2[0][i]-10, tab2[1][i]-10); 
+						g.drawString(String.valueOf(y+1), tab2[0][y]-10, tab2[1][y]-10);  
 				}
 			}
 		}
 	}
 	
-	private void graphDraw(int x1,int y1,int x2,int y2)
+	public void sendTab(int[][] tab)
 	{
-		this.draw
+		this.tab = tab.clone();
 	}
 	
 	private int nombreAlea(int min,int max)
