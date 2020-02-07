@@ -20,7 +20,8 @@ public class Fenetre extends JFrame{
 	    this.setLocationRelativeTo(null);
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    this.setLayout(null);
-	    tableau.sendTab(tab);
+	    tableau.setTab(tab);
+	    tableau.setTotalPoints(3);
 	    this.setContentPane(tableau);
 	    this.setVisible(true);
 	    
